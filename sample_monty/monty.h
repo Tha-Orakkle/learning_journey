@@ -2,6 +2,11 @@
 #define MONTY_H_
 
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -49,10 +54,28 @@ typedef struct data_s
 	int qflag;
 } data_t;
 
-extern unsigned long int line_number;
-extern char *file_name;
+/**
+ * struct args_s - structure for arguments from main
+ * @av: argv[1] which is the file from the command line
+ * @ac: number of arguments from main
+ * @line_number: number of the current line in the file
+ *
+ * Description: arguments passed to main from the command line
+ */
+typedef struct args_s
+{
+	char *file_name;
+	unsigned int line_number;
+} args_t;
+
+
+extern data_t data;
 
 
 #define USAGE "USAGE: monty file\n"
 #define FILE_ERROR "Error: Can't open file %s\n"
+#define UNKNOWN "L%d: unknown instruction %s\n"
+
+
+
 #endif

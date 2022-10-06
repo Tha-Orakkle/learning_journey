@@ -8,20 +8,20 @@
  */
 int count_word(char *s)
 {
-	int flag = 0, c, w = 0;
+	int flag = 0, i, words = 0;
 
-	for (c = 0; s[c] != '\0'; c++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[c] == ' ')
+		if (s[i] == ' ')
 			flag = 0;
 		else if (flag == 0)
 		{
 			flag = 1;
-			w++;
+			words++;
 		}
 	}
 
-	return (w);
+	return (words);
 }
 
 /**
@@ -33,7 +33,7 @@ int count_word(char *s)
  */
 char **split_into_words(char *str)
 {
-	char **matrix, *tmp;
+	char **splited_words, *tmp;
 	int i, k = 0, len = 0, words, c = 0, start, end;
 
 	len = strlen(str);
@@ -41,13 +41,13 @@ char **split_into_words(char *str)
 	if (words == 0)
 		return (NULL);
 
-	matrix = (char **) malloc(sizeof(char *) * (words + 1));
-	if (matrix == NULL)
+	splited_words = (char **) malloc(sizeof(char *) * (words + 1));
+	if (splited_words == NULL)
 		return (NULL);
 
 	for (i = 0; i <= len; i++)
 	{
-		if (isspace(str[i]) || str[i] == '\0' || str[i] == '\n')
+		if (str[i] == ' ' || str[i] == '\0' || str[i] == '\n')
 		{
 			if (c)
 			{
@@ -58,7 +58,7 @@ char **split_into_words(char *str)
 				while (start < end)
 					*tmp++ = str[start++];
 				*tmp = '\0';
-				matrix[k] = tmp - c;
+				splited_words[k] = tmp - c;
 				k++;
 				c = 0;
 			}
@@ -67,7 +67,7 @@ char **split_into_words(char *str)
 			start = i;
 	}
 
-	matrix[k] = NULL;
+	splited_words[k] = NULL;
 
-	return (matrix);
+	return (splited_words);
 }

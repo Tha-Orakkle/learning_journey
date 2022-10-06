@@ -1,6 +1,13 @@
 #include "monty.h"
 
-data_t data = {NULL, NULL, NULL, NULL, 0};
+data_t data = DATA_INIT;
+
+/**
+ * monty - opens and reads and gets a line from
+ * a file containing monty bytecode and calls the right function
+ * for the instruction found in the monty bytecode
+ * @args: points to a struct of arguments passed to main
+ */
 
 void monty(args_t *args)
 {
@@ -23,23 +30,32 @@ void monty(args_t *args)
 			break;
 		data.words = split_into_words(data.line);
 		if (data.words[0] == NULL || data.words[0][0] == '#')
+		{
+			free_data();
 			continue;
-		code_func = get_func(data.words[0]);
+		}
+		code_func = call_func(data.words);
 		if (!code_func)
 		{
 			dprintf(STDERR_FILENO, UNKNOWN, args->line_number, data.words[0]);
 			exit(EXIT_FAILURE);
 		}
 		code_func(&(data.stack), args->line_number);
-		free_all(0);
+		free_data();
 	}
-	free_all(1);
+	free_stack();
 }
 
 
 
 
-
+/**
+ * main - interprets a monty bytecode
+ * @argc: arguments counter
+ * @argv: an array of arguments
+ *
+ * Return: EIT_SUCCESS or EXIT_FAILURE
+ */
 
 int main(int argc, char *argv[])
 {

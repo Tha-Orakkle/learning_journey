@@ -26,7 +26,7 @@ int count_words(char *s)
 	return (count);
 }
 
-char **split_into_words(char *str)
+void split_into_words(char *str)
 {
 	char **splited_words;
 	int i = 0, j, words;
@@ -36,7 +36,7 @@ char **split_into_words(char *str)
 	words = count_words(str);
 	splited_words = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!splited_words)
-		return (NULL);
+		return;
 
 	for (j = 0; str[j] != '\0'; j++)
 		string[j] = str[j];
@@ -50,16 +50,16 @@ char **split_into_words(char *str)
 		splited_words[i] = strdup(token);
 	}
 	splited_words[i + 1] = NULL;
-	return (splited_words);
+	splited_words = splited_words - i;
+	for (i = 0; splited_words[i]; i++)
+		printf("%s\n", splited_words[i]);
 }
 
 int main(void)
 {
-	char **matrix;
 	char *line = "this is a new line to be splited";
 
-	matrix = split_into_words(line);
-	printf("%s\n", *matrix);
+	split_into_words(line);
 
 	return (0);
 }

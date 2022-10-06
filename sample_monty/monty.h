@@ -55,6 +55,7 @@ typedef struct data_s
 	int qflag;
 } data_t;
 
+
 /**
  * struct args_s - structure for arguments from main
  * @av: argv[1] which is the file from the command line
@@ -69,16 +70,36 @@ typedef struct args_s
 	unsigned int line_number;
 } args_t;
 
-
 extern data_t data;
-
 
 #define USAGE "USAGE: monty file\n"
 #define FILE_ERROR "Error: Can't open file %s\n"
 #define UNKNOWN "L%d: unknown instruction %s\n"
-
+#define MALLOC_FAIL "Error: malloc failed\n"
+#define PUSH_FAIL "L%u: usage: push integer\n"
+#define DATA_INIT {NULL, NULL, NULL, NULL, 0}
 /* main.c */
 void monty(args_t *args);
 
+/* split.c */
+int count_word(char *s);
+char **split_into_words(char *str);
 
+/* call_func.c */
+void (*call_func(char **search))(stack_t **, unsigned int);
+
+/* operation_handlers.c */
+void push_handler(stack_t **stack, unsigned int line_number);
+void pall_handler(stack_t **stack, unsigned int line_number);
+
+/* lists */
+size_t print_dlistint(const stack_t *h);
+stack_t *add_dnodeint(stack_t **head, const int n);
+stack_t *add_dnodeint_end(stack_t **head, const int n);
+void free_dlistint(stack_t *head);
+stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index);
+
+/* free.c */
+void free_data(void);
+void free_stack(void);
 #endif

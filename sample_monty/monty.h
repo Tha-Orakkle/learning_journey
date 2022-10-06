@@ -76,6 +76,8 @@ extern data_t data;
 #define FILE_ERROR "Error: Can't open file %s\n"
 #define UNKNOWN "L%d: unknown instruction %s\n"
 
+/* main.c */
+void monty(args_t *args);
 
 
 #endif

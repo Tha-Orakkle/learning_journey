@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -49,7 +49,8 @@ typedef struct file_data_s
 	FILE *fptr;
 	char *line;
 	char **words;
-	stack_t stack;
+	stack_t *stack;
+	int s_or_q;
 } file_data_t;
 
 extern file_data_t file_data;
@@ -57,6 +58,8 @@ extern file_data_t file_data;
 #define USAGE "USAGE: monty file\n"
 #define CANTOPEN "Error: Cant't open file %s\n"
 #define UNKNOWN "L%d: unknown instruction %s\n"
+#define MALLOC_FAIL "Error: malloc failed\n"
+#define PUSH_FAIL "L%u: usage: push integer\n"
 
 /* main.c */
 void monty(char *file);
@@ -66,6 +69,23 @@ int count_words(char *s);
 void split_into_words(char *str);
 
 /* call_func */
-void (*call_func(char *search))(stack_t **stack, unsigned line_number);
+void (*call_func(char **search))(stack_t **stack, unsigned line_number);
+
+/* free.c */
+void free_data(void);
+void free_stack(void);
+
+/* helper_funcs.c */
+size_t print_dlistint(const stack_t *h);
+stack_t *add_dnodeint(stack_t **head, const int n);
+stack_t *add_dnodeint_end(stack_t **head, const int n);
+void free_dlistint(stack_t *head);
+stack_t *insert_dnodeint_at_index(stack_t **h, unsigned int idx, int n);
+
+/* operation_handler.c */
+void push(stack_t **stack, unsigned int line_number);
+void pall_handler(stack_t **stack, unsigned int line_number);
+
+
 
 #endif

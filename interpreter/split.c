@@ -28,6 +28,7 @@ int count_words(char *s)
 /**
  * split_into_words - splits a string into words
  * saves the splited words to the extern struct member **words
+ * @str: string to split
  */
 
 void split_into_words(char *str)

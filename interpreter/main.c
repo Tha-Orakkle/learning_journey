@@ -1,6 +1,6 @@
 #include "monty.h"
 
-file_data_t file_data = {NULL};
+file_data_t file_data = {NULL, NULL, NULL, NULL, 0};
 
 /**
  * monty - helper for the main procedure
@@ -11,7 +11,7 @@ void monty(char *file_name)
 {
 	unsigned int line_num = 0;
 	size_t size = 0;
-	int val, i = 0;
+	int val;
 	void (*func)(stack_t **stack, unsigned int line_number);
 
 	file_data.fptr = fopen(file_name, "r");
@@ -23,28 +23,30 @@ void monty(char *file_name)
 
 	while (1)
 	{
-		line_number++;
+		line_num++;
 		val = getline(&(file_data.line), &size, file_data.fptr);
 		if (val < 0)
 			break;
 		split_into_words(file_data.line);
 		if (file_data.words == NULL || file_data.words[0][0] == '#')
 		{
-			/* free the line or words */
+			free_data();
 			continue;
 		}
-		func = call_func(file_data.words[0]);
-		if (!func)
+		func = call_func(file_data.words);
+		if (func == NULL)
 		{
 			dprintf(STDERR_FILENO, UNKNOWN, line_num, file_data.words[0]);
-			/*free lines, words, and information already on stack before exit */
+			free_data();
+			free_stack();
 			exit(EXIT_FAILURE);
 		}
-		func(file_data.stack, line_num);
-		/* free line and words for next line within the while loop */
+		func(&(file_data.stack), line_num);
+		free_data();
 	}
 	/*free line, words if contains any file, close file_name, free stack*/
-
+	free_data();
+	free_stack();
 }
 /**
  * main - entry point for the monty bytecode interpreter

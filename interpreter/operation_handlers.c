@@ -46,13 +46,32 @@ void push(stack_t **stack, unsigned int line_number)
 
 
 /**
- * pall_handler - handles the pall instruction
+ * pall - handles the pall instruction
  * @stack: double pointer to the stack to push to
  * @line_number: number of the line in the file
  */
-void pall_handler(stack_t **stack, unsigned int line_number)
+void pall(stack_t **stack, unsigned int line_number)
 {
 	(void) line_number;
 	if (*stack)
 		print_dlistint(*stack);
+}
+
+/**
+ * pint - handles the pint instruction
+ * @stack: double pointer to the stack to push to
+ * @line_number: number of the line in the file
+ */
+void pint(stack_t **stack, unsigned int line_number)
+{
+	stack_t *head = *stack;
+
+	if (!head)
+	{
+		dprintf(STDERR_FILENO, PINT_FAIL, line_number);
+		free_data();
+		free_stack();
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", head->n);
 }

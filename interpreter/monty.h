@@ -60,6 +60,10 @@ extern file_data_t file_data;
 #define UNKNOWN "L%d: unknown instruction %s\n"
 #define MALLOC_FAIL "Error: malloc failed\n"
 #define PUSH_FAIL "L%u: usage: push integer\n"
+#define PINT_FAIL "L%u: can't pint, stack empty\n"
+#define POP_FAIL "L%u: can't pop an empty stack\n"
+#define SWAP_FAIL "L%u: can't swap, stack too short\n"
+
 
 /* main.c */
 void monty(char *file);
@@ -84,8 +88,8 @@ stack_t *insert_dnodeint_at_index(stack_t **h, unsigned int idx, int n);
 
 /* operation_handler.c */
 void push(stack_t **stack, unsigned int line_number);
-void pall_handler(stack_t **stack, unsigned int line_number);
-
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 
 
 #endif

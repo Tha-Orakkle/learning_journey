@@ -41,11 +41,18 @@ void split_into_words(char *str)
 	file_data.words = malloc(sizeof(char *) * (words + 1));
 	if (!file_data.words)
 		return;
-	token = strtok(str, " ");
-	while (token)
+	if (words == 1)
 	{
+		token = strtok(str, " ");
 		file_data.words[i++] = token;
-		token = strtok(NULL, " ");
 	}
-	file_data.words[i] = NULL;
+	else
+	{
+		token = strtok(str, " ");
+		while (token)
+		{
+			file_data.words[i++] = token;
+			token = strtok(NULL, " ");
+		}
+	}
 }

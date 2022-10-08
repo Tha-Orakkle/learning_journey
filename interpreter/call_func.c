@@ -11,7 +11,8 @@ void (*call_func(char **search))(stack_t **stack, unsigned int line_num)
 {
 	instruction_t func_arr[] = {
 		{"push", push},
-		{"pall", pall_handler},
+		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	}; /*num of code if func_arr*/
 	int i;

@@ -2,4 +2,4 @@ push 23
 push 34
 push 3
 push 5
-pall 6
+pall

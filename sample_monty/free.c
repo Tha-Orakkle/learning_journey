@@ -13,11 +13,6 @@ void free_data(void)
 		free(data.line);
 		data.line = NULL;
 
-		while (data.words[i])
-		{
-			free(data.words[i]);
-			i++;
-		}
 		free(data.words);
 		data.words = NULL;
 	}

@@ -83,7 +83,7 @@ void monty(args_t *args);
 
 /* split.c */
 int count_word(char *s);
-char **split_into_words(char *str);
+void split_into_words(char *str);
 
 /* call_func.c */
 void (*call_func(char **search))(stack_t **, unsigned int);

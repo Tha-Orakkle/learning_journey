@@ -31,43 +31,27 @@ int count_word(char *s)
  * Return: pointer to an array of strings (Success)
  * or NULL (Error)
  */
-char **split_into_words(char *str)
+void split_into_words(char *str)
 {
-	char **splited_words, *tmp;
-	int i, k = 0, len = 0, words, c = 0, start, end;
+	char *token;
+	int words, i = 0;
 
-	len = strlen(str);
 	words = count_word(str);
-	if (words == 0)
-		return (NULL);
 
-	splited_words = (char **) malloc(sizeof(char *) * (words + 1));
-	if (splited_words == NULL)
-		return (NULL);
+	data.words = malloc(sizeof(char *) * (words + 1));
+	if (!data.words)
+		return;
 
-	for (i = 0; i <= len; i++)
+	if (words == 1)
+		data.words[i++] = str;
+	else
 	{
-		if (isspace(str[i]) || str[i] == '\0' || str[i] == '\n')
+		token = strtok(str, " ");
+		while (token)
 		{
-			if (c)
-			{
-				end = i;
-				tmp = (char *) malloc(sizeof(char) * (c + 1));
-				if (tmp == NULL)
-					return (NULL);
-				while (start < end)
-					*tmp++ = str[start++];
-				*tmp = '\0';
-				splited_words[k] = tmp - c;
-				k++;
-				c = 0;
-			}
+			data.words[i++] = token;
+			token = strtok(NULL, " ");
 		}
-		else if (c++ == 0)
-			start = i;
 	}
-
-	splited_words[k] = NULL;
-
-	return (splited_words);
+	data.words[i] = NULL;
 }

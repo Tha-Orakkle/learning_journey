@@ -2,9 +2,10 @@
 
 /**
  * free_data - frees the data.line and data.words,
+ * @flag: 1 or 0
  */
 
-void free_data(void)
+void free_data(int flag)
 {
 	int i = 0;
 
@@ -21,21 +22,18 @@ void free_data(void)
 		free(data.words);
 		data.words = NULL;
 	}
-}
-/**
- * free_stack - frees the entire stack
- */
 
-void free_stack(void)
-{
-	if (data.stack)
+	if (flag)
 	{
-		free_dlistint(data.stack);
-		data.stack = NULL;
-	}
-	if (data.fptr)
-	{
-		fclose(data.fptr);
-		data.fptr = NULL;
+		if (data.stack)
+		{
+			free_dlistint(data.stack);
+			data.stack = NULL;
+		}
+		if (data.fptr)
+		{
+			fclose(data.fptr);
+			data.fptr = NULL;
+		}
 	}
 }

@@ -13,9 +13,14 @@ void (*call_func(char **search))(stack_t **, unsigned int)
 	instruction_t instructions_arr[] = {
 		{"push", push_handler},
 		{"pall", pall_handler},
+		{"pint", pint_handler},
+		{"pop", pop_handler},
+		{"swap", swap_handler},
+		{"add", add_handler},
+		{"nop", nop_handler},
 		{NULL, NULL}
 	};
-	int op_codes = 2, i;
+	int op_codes = 7, i;
 
 	for (i = 0; i < op_codes; i++)
 	{

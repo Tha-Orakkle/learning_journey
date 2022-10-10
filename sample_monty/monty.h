@@ -98,7 +98,7 @@ void monty(args_t *args);
 
 /* split.c */
 int count_word(char *s);
-void split_into_words(char *str);
+char **split_into_words(char *str);
 
 /* call_func.c */
 void (*call_func(char **search))(stack_t **, unsigned int);
@@ -131,6 +131,6 @@ stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index);
 
 
 /* free.c */
-void free_data(int flag);
-/*void free_stack(void);*/
+void free_data(int check);
+void free_everything(char **args);
 #endif

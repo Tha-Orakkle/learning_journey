@@ -1,24 +1,39 @@
 #include "monty.h"
 
 /**
+ * free_everything - frees arrays of string
+ * @args: array of strings to free
+ */
+void free_everything(char **args)
+{
+	int i;
+
+	if (!args)
+		return;
+	for (i = 0; args[i]; i++)
+		free(args[i]);
+	free(args);
+}
+
+/**
  * free_data - frees the data.line and data.words,
- * @flag: 1 or 0
+ * @check: flag to indicate what to free
  */
 
-void free_data(int flag)
+void free_data(int check)
 {
 	int i = 0;
 
-	if (data.line || data.words)
+	if (data.line)
 	{
 		free(data.line);
 		data.line = NULL;
 
-		free(data.words);
+		free_everything(data.words);
 		data.words = NULL;
 	}
 
-	if (flag)
+	if (check)
 	{
 		if (data.stack)
 		{

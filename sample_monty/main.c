@@ -28,7 +28,7 @@ void monty(args_t *args)
 
 		if (val < 0)
 			break;
-		split_into_words(data.line);
+		data.words = split_into_words(data.line);
 		if (data.words[0] == NULL || data.words[0][0] == '#')
 		{
 			free_data(0);

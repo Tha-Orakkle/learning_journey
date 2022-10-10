@@ -20,6 +20,8 @@ void (*call_func(char **search))(stack_t **, unsigned int)
 		{"nop", nop_handler},
 		{NULL, NULL}
 	};
+
+
 	int op_codes = 7, i;
 
 	for (i = 0; i < op_codes; i++)

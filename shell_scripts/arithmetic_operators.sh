@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-num1=20.5
+num1=20
 num2=5
 
 # method 1

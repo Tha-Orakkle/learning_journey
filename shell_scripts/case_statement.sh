@@ -17,3 +17,26 @@ case $vehicle in
 	* )
 		echo "The vehicle is unknown" ;;
 esac
+
+
+# ============================================
+
+# learning case statement using regex
+# where the cap letters are not recognised on your terminal,
+# set LANG=C
+
+echo -e "Enter some characters: \c"
+read value
+
+case $value in
+	[a-z] )
+		echo "Use entered $value a to z" ;;
+	[A-Z] )
+		echo "Use entered $value A to Z" ;;
+	[0-9] )
+		echo "Use entered $value 0 to 9" ;;
+	? )
+		echo "Use entered $value special character" ;;
+	* )
+		echo "Unknown input" ;;
+esac

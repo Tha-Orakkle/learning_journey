@@ -20,7 +20,7 @@ read file_name
 # '-x' checks if it is execution permission
 
 
-if [ -e $file_name ] 
+if [ -e $file_name ]
 then
 	echo "$file_name found"
 else

@@ -4,7 +4,7 @@
 # bash supports single dimensional array 
 
 os=('ubuntu' 'windows' 'kali')
-os[3]='mac' # appending to an array
+os[3]='mac' # adding an element to an array
 
 unset os[2] # removes the element of an array
 echo "${os[@]}" # prints all the element of the array

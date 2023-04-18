@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+"""shortest palindrome"""
+
+
 def ispalindrome(s):
+    """checks if str is a palindrome"""
     l = len(s)
     i = 0
     j = l - 1
@@ -11,6 +15,7 @@ def ispalindrome(s):
     return True
 
 def convert_palindrome(s):
+    """coverts a word to a palindrome"""
     flag = 0
     tmp = s
     pre = ""

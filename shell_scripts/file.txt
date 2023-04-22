@@ -1,3 +1,0 @@
-this is a test file
-the content of this file is a random text put together for the
-purpose of an experiment

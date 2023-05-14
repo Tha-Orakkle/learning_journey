@@ -28,3 +28,30 @@ function foo2() {
 }
 foo1();
 foo2();
+
+// Anonymous function: Using arrow function
+var magic = function () {
+    return new Date();
+};
+
+// same as 
+var magic = () => new Date();
+
+//arrow function with args
+
+var myConcat = (arr1, arr2) => arr1.concat(arr2);
+
+console.log(myConcat([1, 2], [3, 4, 5]));
+
+
+//
+const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+const squareList = (arr) => {
+    const squaredIntegers = arr.filter(num => Number.isInteger(num) && num > 0).map(x => x * x);
+    return squaredIntegers;
+}
+
+console.log(realNumberArray);
+const squaredIntegers = squareList(realNumberArray);
+console.log(squaredIntegers);
+

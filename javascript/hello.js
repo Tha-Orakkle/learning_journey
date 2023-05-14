@@ -3,7 +3,7 @@ console.log("Hello World!");
 // declaration of vars
 var myName = "Paul"; // var used throughout program 
 let yourName = "David"; // only used within declaration scope
-const pi = 3.14 // var that never changes
+const pi = 3.14 // var that never changes. It is read-only
 
 console.log(myName + " " + yourName);
 var a = 2.0 * 2.5;

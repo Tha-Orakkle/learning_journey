@@ -2,6 +2,7 @@
 """Removes duplicates from sorted Array.
 Modification done in-place"""
 
+
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
         uniq = set()

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 while read p # reads into variable p line by line
-do 
+do
 	echo $p
 	sleep 2
 done < file.txt # redirection: reads from file.txt
@@ -11,7 +11,7 @@ done < file.txt # redirection: reads from file.txt
 echo "======================================"
 
 cat file.txt | while read p
-do 
+do
 	echo $p
 	sleep 1
 done

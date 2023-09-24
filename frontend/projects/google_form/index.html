@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <div class="content-wrap">
+      <!-- Info about the form -->
+      <div class="form-info">
+        <div class="form-info-item">
+          <h1>ORGANISATION FORM</h1>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et ad
+            vitae alias assumenda, eveniet cumque nisi harum cupiditate, sit
+            soluta sed dolore quam consectetur similique neque aspernatur quia
+            illum non.
+          </p>
+        </div>
+        <hr />
+        <div class="form-info-item one">
+          <p>
+            email@example.com<br />
+            <a href="#">Switch account</a>
+          </p>
+
+          <p>Not Shared</p>
+          <!-- an icon sits here  -->
+        </div>
+        <hr />
+        <p class="form-info-item" id="req">* indicates required question</p>
+      </div>
+      <form action="#" method="post">
+        <!-- Name -->
+        <div class="form-items text">
+          <label class="items" for="first-name">First Name <span>*</span></label
+          ><br />
+          <input
+            type="text"
+            name="first-name"
+            id="first-name"
+            placeholder="Your Answer"
+            required
+          />
+        </div>
+
+        <div class="form-items text">
+          <label class="items" for="middle-name">Middle Name</label><br />
+          <input
+            type="text"
+            name="middle-name"
+            placeholder="Your Answer"
+            id="middle-name"
+          />
+        </div>
+
+        <div class="form-items text">
+          <label class="items" for="last-name">Last Name <span>*</span></label
+          ><br />
+          <input
+            type="text"
+            name="last-name"
+            id="last-name"
+            placeholder="Your Answer"
+            required
+          />
+        </div>
+
+        <!-- birthday -->
+        <div class="form-items">
+          <label for="birthay" class="items">Birthday</label><br />
+          <input type="date" name="birthday" id="birthday" />
+        </div>
+
+        <!-- gender -->
+        <div class="form-items radio">
+          <label class="items">Gender <span>*</span></label
+          ><br />
+          <input type="radio" name="gender" id="male" value="Male" required />
+          <label for="male">Male</label><br />
+          <input type="radio" name="gender" id="female" value="Female" />
+          <label for="female">Female</label>
+        </div>
+
+        <!-- level -->
+        <div class="form-items radio">
+          <label class="items">Level <span>*</span></label
+          ><br />
+          <input type="radio" name="level" id="100" value="100" required />
+          <label for="100">100</label><br />
+          <input type="radio" name="level" id="200" value="200" />
+          <label for="200">200</label><br />
+          <input type="radio" name="level" id="300" value="300" />
+          <label for="300">300</label><br />
+          <input type="radio" name="level" id="400" value="400" />
+          <label for="400">400</label><br />
+          <input type="radio" name="level" id="500" value="500" />
+          <label for="500">500</label>
+        </div>
+
+        <!-- chmaber -->
+        <div class="form-items radio">
+          <label class="items">Chamber <span>*</span></label
+          ><br />
+          <input type="radio" name="chamber" id="gfsc" value="GFSC" required />
+          <label for="gfsc">Gani Fawehinmi Students' Chamber</label><br />
+          <input type="radio" name="chamber" id="josc" value="JOSC" />
+          <label for="josc">Justice Oputa Students' Chamber</label><br />
+          <input type="radio" name="chamber" id="kesc" value="KESC" />
+          <label for="kesc">Kayode Eso Students' Chamber</label><br />
+          <input type="radio" name="chamber" id="tec" value="TEC" />
+          <label for="tec">Taslim Elias Students' Chmaber</label><br />
+          <input type="radio" name="chamber" id="none" value="None" />
+          <label for="none">None</label>
+        </div>
+
+        <!-- email -->
+        <div class="form-items text">
+          <label for="email" class="items">Email Address <span>*</span></label
+          ><br />
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Your Answer"
+            required
+          />
+        </div>
+
+        <!-- Phone  Number -->
+        <div class="form-items text">
+          <label for="phone" class="items"
+            >Phone Number (WhatsApp) <span>*</span></label
+          ><br />
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            placeholder="Your Answer"
+            required
+          />
+        </div>
+
+        <div class="submit-wrap">
+          <input type="submit" name="submit" id="submit" />
+          <a href="#">Clear form</a>
+        </div>
+      </form>
+      <footer>
+        <p>Never submits passwords through Google Forms</p>
+          <p>
+            This content is neither created nor endorsed by Google.
+            <a href="#">Report Abuse</a> - <a href="#">Terms of Service</a> -
+            <a href="#">Privacy Policy</a>
+          </p>
+          <p id="google-forms"><span style="color: #333; font-weight: 500;">Google</span> Forms</p>
+      </footer>
+
+      <!-- END -->
+    </div>
+  </body>
+</html>

@@ -1,5 +1,4 @@
 function freezeObj() {
-    "use strict";
     const MATH_CONST = {
         PI: 3.14
     };

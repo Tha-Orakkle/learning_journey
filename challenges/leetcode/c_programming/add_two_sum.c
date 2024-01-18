@@ -1,138 +1,111 @@
-#include <stdlib.h>
 #include <stdio.h>
-#include <stdint.h>
+#include <stdlib.h>
 
-/**
- * Temporary Description:
- * Adds the elements of the nodes of two linked lists
- */
 typedef struct ListNode_s
 {
-    int val;
-    struct ListNode_s *next;
+	int val;
+	struct ListNode_s *next;
 } ListNode_t;
 
-
-void reverse_list(ListNode_t **head);
-int64_t gets_nodeint(ListNode_t **head);
-ListNode_t *sum_Linkedlist(int64_t num);
-ListNode_t *add_node(ListNode_t **head, int num);
-void printall(ListNode_t *head);
-ListNode_t* addTwoNumbers(ListNode_t *l1, ListNode_t *l2);
-
-
-int main(void)
+ListNode_t *addTwoNumbers(ListNode_t *l1, ListNode_t *l2)
 {
-        ListNode_t *list1 = NULL;
-        ListNode_t *list2 = NULL;
-        ListNode_t *sumoftwo = NULL;
+	int rem = 0, flag = 0;
+	int _sum, x, y;
+	ListNode_t *current = NULL;
+	ListNode_t *result = malloc(sizeof(ListNode_t));
 
+	if (!result)
+		return (NULL);
 
-        add_node(&list1, 3);
-        add_node(&list1, 4);
-        add_node(&list1, 2);
+	result->next = NULL;
+	current = result;
 
-        add_node(&list2, 4);
-        add_node(&list2, 6);
-        add_node(&list2, 5);
+	while (l1 || l2 || rem)
+	{
+		if (flag == 1)
+		{
+			current->next = malloc(sizeof(ListNode_t));
+			if (!current->next)
+				return (NULL);
+			current = current->next;
+			current->next = NULL;
+		}
+		x = l1 ? l1->val : 0;
+		y = l2 ? l2->val : 0;
 
-        sumoftwo = addTwoNumbers(list1, list2);
-        printall(sumoftwo);
+		_sum = x + y + rem;
+		rem = _sum / 10;
+		current->val = _sum % 10;
+		l1 = l1 ? l1->next : NULL;
+		l2 = l2 ? l2->next : NULL;
+		flag = 1;
+	}
 
-        return (0);
+	return (result);
 }
+
+ListNode_t *add_node(ListNode_t **head, int val)
+{
+	ListNode_t *new_node, *temp;
+
+
+	new_node = malloc(sizeof(ListNode_t));
+	if (!new_node)
+		return (NULL);
+
+	new_node->val = val;
+	new_node->next = NULL;
+
+	if (!(*head))
+	{
+		(*head) = new_node;
+		return (*head);
+
+	}
+	temp = (*head);
+
+	while (temp && temp->next)
+	{
+		temp = temp->next;
+	}
+	temp->next = new_node;
+
+	return (*head);
+}
+
+
 
 void printall(ListNode_t *head)
 {
-        while (head)
-        {
-                printf("%d\n", head->val);
-                head = head->next;
-        }
+	while (head)
+	{
+		printf("%d\n", head->val);
+		head = head->next;
+	}
 }
 
-ListNode_t* addTwoNumbers(ListNode_t *l1, ListNode_t *l2)
+int main(void)
 {
-    int64_t sum_val, value1, value2;
-    ListNode_t *sum_list;
+	ListNode_t *list1 = NULL;
+	ListNode_t *list2 = NULL;
+	ListNode_t *sumList = NULL;
 
-    reverse_list(&l1);
-    value1 = gets_nodeint(&l1);
-    reverse_list(&l2);
-    value2 = gets_nodeint(&l2);
-    sum_val = value1 + value2;
+	add_node(&list1, 2);
+	add_node(&list1, 4);
+	add_node(&list1, 9);
+	add_node(&list1, 9);
+	add_node(&list1, 9);
 
-    sum_list = sum_Linkedlist(sum_val);
-    reverse_list(&sum_list);
 
-    return (sum_list);
-}
+	add_node(&list2, 5);
+	add_node(&list2, 6);
+	add_node(&list2, 4);
 
-void reverse_list(ListNode_t **head)
-{
-    ListNode_t *next = NULL;
-    ListNode_t *prev = NULL;
-    ListNode_t *current = *head;
+	sumList = addTwoNumbers(list1, list2);
+//	printall(list1);
+//	printf("\n");
+//	printall(list2);
+	printall(sumList);
 
-    while (current != NULL)
-    {
-        next = current->next;
-        current->next = prev;
-        prev = current;
-        current = next;
-    }
-
-    (*head) = prev;
-}
-
-int64_t gets_nodeint(ListNode_t **head)
-{
-    int64_t value = 0, weight = 1;
-    ListNode_t *current = *head;
-
-    while (current)
-    {
-        value = (value * weight) + current->val;
-        current = current->next;
-        weight = 10;
-    }
-
-    return (value);
-}
-
-ListNode_t *sum_Linkedlist(int64_t num)
-{
-    ListNode_t *new = NULL;
-    int rem;
-
-    if (num == 0)
-	    add_node(&new, num);
-    else
-    {
-	    while (num != 0)
-	    {
-		    rem = num % 10;
-		    add_node(&new, rem);
-		    num = num / 10;
-	    }
-    }
-
-    return (new);
-}
-
-ListNode_t *add_node(ListNode_t **head, int num)
-{
-    ListNode_t *new_node;
-
-    new_node = malloc(sizeof(ListNode_t));
-
-    if (!new_node)
-        return (NULL);
-
-    new_node->val = num;
-    new_node->next = (*head);
-    (*head) = new_node;
-
-    return (*head);
-
+	return (0);
 }

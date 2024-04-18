@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/data/data/com.termux/files/home/programming/high_level/AirBnB_clone_v4/api/v1/views'
+let g:netrw_dirhist_4='/data/data/com.termux/files/home/programming/high_level/alx-higher_level_programming/0x06-python-classes'
+let g:netrw_dirhist_3='/data/data/com.termux/files/home/programming/projects/elearnhub/models'
+let g:netrw_dirhist_2='/data/data/com.termux/files/home/programming/high_level/AirBnB_clone_v4/models'
+let g:netrw_dirhist_1='/data/data/com.termux/files/home/programming/challenges/Fix_My_Code_Challenge/0x00-challenge'

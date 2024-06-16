@@ -27,4 +27,4 @@ if total < 10 or total > 90:
 elif total > 40 and total < 50:
     print(f"Your score is {total}, you are alright together.")
 else:
-    print(f"Your score is {total}.")
+    print(f"Your score is {total}. Thats a solid match")

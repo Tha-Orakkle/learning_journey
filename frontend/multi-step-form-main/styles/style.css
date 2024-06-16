@@ -1,0 +1,282 @@
+/* ------------ general styles -------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background: #e0d8d8 ;
+}
+
+.content-wrapper {
+    background: hsl(0, 0%, 100%);
+    border-radius: 15px;
+    padding: 13px;
+    height: 500px;
+    width: 800px;
+    margin: 50px auto 0;
+    display: flex;
+    font-size: smaller;
+}
+
+/* #step1, #step2, #step3, #step4 {
+    display: none;
+} */
+
+/* ---------------- sidebar ------------------ */
+
+.sidebar {
+    color: #fff;
+    width: 30%;
+    background: url(../assets/images/bg-sidebar-desktop.svg) no-repeat;
+    background-size: contain;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    
+}
+
+.sidebar-nav {
+    display: flex;
+    column-gap: 10px;
+}
+
+small {
+    color: hsl(229, 24%, 87%);
+}
+
+.num {
+    width: 30px;
+    height: 30px;
+    border: 1px solid;
+    border-radius: 50px;
+    text-align: center;
+    padding: 7px;
+}
+
+.num-page {
+    color: #000;
+    background: hsl(206, 94%, 87%);
+    border: none;
+}
+
+/* --------------- style for all steps -------------- */
+.main-content {
+    margin-top: 30px;
+}
+
+.steps {
+    margin: 40px auto 10px;
+    width: 400px;
+    position: relative;
+}
+
+.steps h2 {
+    margin-bottom: 7px;
+    font-size: 30px;
+}
+
+.steps p {
+    color: gray;
+}
+
+.bottom-nav{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+
+/* --------------- style for step 1 ---------------- */
+.form-input span {
+    float: right;
+    color: red;
+}
+
+.form-input input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid hsl(231, 11%, 63%);
+    border-radius: 7px;
+    margin-top: 4px;
+    margin-bottom: 20px;
+    padding: 5px;
+    background: none;
+
+}
+
+.form-input input:hover {
+    border: 2px solid hsl(261, 100%, 77%);
+}
+
+.bottom-nav-first {
+    justify-content: flex-end;
+}
+
+.bottom-nav-first button{
+    width: 100px;
+    background: hsl(213, 96%, 18%);
+    color: #fff;
+    border: none;
+    height: 40px;
+    border: 1px solid hsl(231, 11%, 63%);
+    border-radius: 7px;
+    padding: 5px;
+}
+
+/* --------------- style for other steps ---------------- */
+.bottom-nav-steps {
+    justify-content: space-between;
+}
+
+.bottom-nav-steps > :last-child {
+    width: 100px;
+    background: hsl(213, 96%, 18%);
+    color: #fff;
+    border: none;
+    height: 40px;
+    border: 1px solid hsl(231, 11%, 63%);
+    border-radius: 7px;
+    padding: 5px;
+}
+.bottom-nav-steps > :first-child {
+    text-decoration: None;
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+}
+
+.bottom-nav-steps > :first-child:hover {
+    color: hsl(213, 96%, 18%);
+    font-weight: 700;
+}
+
+/* --------------- style for step 2 ---------------- */
+.options-wrapper {
+    display: flex;
+    column-gap: 15px;
+    margin-bottom: 20px;
+}
+
+.options {
+    flex: 1;
+    height: 140px;
+    border: 1px solid rgb(165, 165, 165);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 0;
+}
+.options img {
+    height: 35px;
+    margin-bottom: 40px;
+}
+
+.sub-select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    background: #e0d8d8;
+    border-radius: 5px;
+    column-gap: 20px;
+}
+
+#sub-button {
+    width: 35px;
+    height: 17px;
+    border-radius: 10px;
+    background:hsl(213, 96%, 18%);
+    position: relative;
+    padding: 2px;
+}
+
+#toggle {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    /* float: right; */
+    float: left;
+}
+
+/* --------------styles for step 3------------- */
+.add-ons-option {
+    border: 1px solid hsl(258, 95%, 62%);
+    border-radius: 5px;
+    display: flex;
+    margin-bottom: 15px;
+    height: 65px;
+    column-gap: 20px;
+    flex: 1;
+    align-items: center;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.add-ons-option div {
+    flex: 3;
+}
+
+/* ----------------styles for step 4--------------- */
+
+.finish-page {
+    width: 100%;
+    background: hsl(210, 5%, 92%);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.finish-page > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.finish-page > div:first-child {
+    border-bottom: 1px solid hsl(210, 2%, 84%);
+    padding-bottom: 15px;
+}
+
+.finish-page > div:not(:first-child) {
+    margin-top: 15px;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.total > p:last-child {
+    font-size: 20px;
+}
+
+/* -------------style for thank you page---------------- */
+.thank-you  {
+    padding-top: 70px;
+    margin: 40px auto 10px;
+    width: 400px;
+    text-align: center;
+ }
+
+ .thank-you img {
+    display: block;
+    margin: 0 auto 30px;
+ }
+
+.thank-you h2 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.thank-you p {
+    color: gray;
+}

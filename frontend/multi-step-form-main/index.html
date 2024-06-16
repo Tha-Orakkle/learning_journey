@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <!-- <link rel="stylesheet" href="styles/step-1 .css" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Frontend Mentor | Multi-step form</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content-wrapper">
+      <!-- Sidebar start -->
+      <div class="sidebar">
+        <div class="sidebar-nav">
+          <div class="num" id="num1">1</div>
+          <div>
+            <small>STEP 1</small>
+            <p>YOUR INFO</p>
+          </div>
+        </div>
+        <div class="sidebar-nav">
+          <div class="num" id="num2">2</div>
+          <div>
+            <small>STEP 2</small>
+            <p>SELECT PLAN</p>
+          </div>
+        </div>
+        <div class="sidebar-nav">
+          <div class="num" id="num3">3</div>
+          <div>
+            <small>STEP 3</small>
+            <p>ADD-ONS</p>
+          </div>
+        </div>
+        <div class="sidebar-nav">
+          <div class="num" id="num4">4</div>
+          <div>
+            <small>STEP 4</small>
+            <p>SUMMARY</p>
+          </div>
+        </div>
+      </div>
+      <!-- Sidebar end -->
+
+      <!-- step 1 start -->
+      <div class="steps" id="step1">
+        <h2>Personal Info</h2>
+        <p>Please provide your name, email address, and phone number.</p>
+        <form action="#" class="main-content">
+          <div class="form-input">
+            <label for="name" id="name-input">Name </label><br>
+            <input type="text" id="name" placeholder="e.g. Stephen King" required />
+          </div>
+          <div class="form-input">
+            <label for="email" id="email-input">Email Address</label><br>
+            <input type="email" id="email" placeholder="e.g. you@example.com" required/>
+          </div>
+          <div class="form-input">
+            <label for="telephone" id="telephone-input">Phone Number</label><br>
+            <input type="tel" id="telephone" placeholder="e.g. +1 234 567 890" required />
+          </div>
+          <div class="bottom-nav bottom-nav-first">
+            <button>Next Step</button>
+          </div>
+          
+        </form>
+      </div>
+      <!-- step 1 Ends -->
+
+      <!-- Step 2 start  -->
+      <div class="steps" id="step2">
+        <h2>Select Plan</h2>
+        <p>You have the option of monthly or yearly biling</p>
+
+        <div class="main-content">
+          <div class="options-wrapper">
+            <div class="options">
+              <img src="assets/images/icon-arcade.svg" alt="arcade-logo">
+              <h4>Arcade</h4>
+              <p>$9/mo</p>
+            </div>
+            <div class="options">
+              <img src="assets/images/icon-advanced.svg" alt="advanced-logo">
+              <h4>Advanced</h4>
+              <p>$12/mo</p>
+            </div>
+            <div class="options">
+              <img src="assets/images/icon-pro.svg" alt="pro-logo">
+              <h4>Pro</h4>
+              <p>$15/mo</p>
+            </div>
+          </div>
+          <div class="sub-select">
+            <p>Monthly</p>
+            <div id="sub-button"><div id="toggle"></div></div>
+            <p>Yearly</p>
+          </div>
+
+          <div class="bottom-nav bottom-nav-steps">
+            <button onclick="prevStep()">Go Back</button>
+            <button onclick="nextStep()">Next Step</button>
+          </div>
+        </div>
+      </div>
+      <!-- Step 2 Ends -->
+
+      <!-- Step 3 start -->
+      <div class="steps" id="step3">
+        <h2>Pick add-ons</h2>
+        <p>Add-ons help enhance gaming experience.</p>
+        <form class="main-content">
+          <div class="add-ons-option">
+            <input type="checkbox">
+            <div>
+              <h4>Online Service</h4>
+              <p>Access to multiplayer games.</p>
+            </div>
+            
+            <p>+$1/mo</p>
+          </div>
+
+          <div class="add-ons-option">
+            <input type="checkbox">
+            <div>
+              <h4>Larger Storage</h4>
+              <p>Extra 1TB os cloud save</p>
+            </div>
+            <p>+$2/mo</p>
+          </div>
+          <div class="add-ons-option">
+            <input type="checkbox">
+            <div>
+              <h4>Customizable Profile</h4>
+              <p>Custom theme on your profile</p>
+            </div>
+            <p>+$2/mo</p>
+          </div>
+
+        </form> 
+        <div class="bottom-nav bottom-nav-steps">
+          <button onclick="prevStep()">Go Back</button>
+          <button onclick="nextStep()">Next Step</button>
+        </div>
+               
+      </div>
+      <!-- Step 3 Ends -->
+
+      <!-- Step 4 Start -->
+      <div class="steps" id="step4">
+        <h2>Finishing up</h2>
+        <p>Double-check everything looks OK before confirming</p>
+        <div class="main-content">
+          <div class="finish-page">
+            <div>
+              <div>
+                <h4>Arcade(Monthly)</h4>
+                <p>change</p>
+              </div>
+              <h4>$9/mo</h4>
+            </div>
+            <div>
+              <p>Online service</p>
+              <p>+$1/mo</p>  
+            </div>
+            <div>
+              <p>Larger storage</p>
+              <p>+$2/mo</p>
+            </div>
+          </div>
+          <div class="total">
+            <p>Total (per month)</p>
+            <p>+$12/mo</p>
+          </div>
+        </div>
+        <div class="bottom-nav bottom-nav-steps">
+          <button onclick="prevStep()">Go Back</button>
+          <button onclick="confirm()">Confirm</button>
+        </div>
+
+      </div>
+      <!-- Step 4 End -->
+
+      <!-- Thank You page -->
+
+      <div class="steps thank-you" id="step5">
+        <img src="assets/images/icon-thank-you.svg" alt="">
+        <h2>Thank You!</h2>
+        <p>Thanks for confirming your subscription!
+          We hope you have fun using our platform.
+          If you ever need support, please feel free to email us
+          at support@loremgaming.com</p>
+      </div>
+
+      <!-- Thnk You page end -->
+
+    </div>
+
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
